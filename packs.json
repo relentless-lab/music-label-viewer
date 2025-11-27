@@ -1,0 +1,2329 @@
+{
+  "packs": {
+    "1": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0096_outro",
+        "file_name": "song0096_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0127_outro",
+        "file_name": "song0127_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0040_intro",
+        "file_name": "song0040_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0131_middle",
+        "file_name": "song0131_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0024_middle",
+        "file_name": "song0024_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0011_intro",
+        "file_name": "song0011_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0066_intro",
+        "file_name": "song0066_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0027_middle",
+        "file_name": "song0027_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0122_outro",
+        "file_name": "song0122_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0114_intro",
+        "file_name": "song0114_intro.wav"
+      }
+    ],
+    "2": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0019_middle",
+        "file_name": "song0019_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0050_middle",
+        "file_name": "song0050_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0124_outro",
+        "file_name": "song0124_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0105_outro",
+        "file_name": "song0105_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0133_intro",
+        "file_name": "song0133_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0136_outro",
+        "file_name": "song0136_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0026_intro",
+        "file_name": "song0026_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0083_outro",
+        "file_name": "song0083_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0123_middle",
+        "file_name": "song0123_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0026_outro",
+        "file_name": "song0026_outro.wav"
+      }
+    ],
+    "3": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0056_intro",
+        "file_name": "song0056_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0004_intro",
+        "file_name": "song0004_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0031_intro",
+        "file_name": "song0031_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0032_intro",
+        "file_name": "song0032_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0039_outro",
+        "file_name": "song0039_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0101_intro",
+        "file_name": "song0101_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0025_intro",
+        "file_name": "song0025_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0028_middle",
+        "file_name": "song0028_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0072_middle",
+        "file_name": "song0072_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0014_intro",
+        "file_name": "song0014_intro.wav"
+      }
+    ],
+    "4": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0053_middle",
+        "file_name": "song0053_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0147_outro",
+        "file_name": "song0147_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0025_middle",
+        "file_name": "song0025_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0112_outro",
+        "file_name": "song0112_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0046_outro",
+        "file_name": "song0046_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0141_middle",
+        "file_name": "song0141_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0139_middle",
+        "file_name": "song0139_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0026_middle",
+        "file_name": "song0026_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0126_outro",
+        "file_name": "song0126_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0081_intro",
+        "file_name": "song0081_intro.wav"
+      }
+    ],
+    "5": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0081_middle",
+        "file_name": "song0081_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0149_intro",
+        "file_name": "song0149_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0038_outro",
+        "file_name": "song0038_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0146_outro",
+        "file_name": "song0146_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0078_middle",
+        "file_name": "song0078_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0137_intro",
+        "file_name": "song0137_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0034_outro",
+        "file_name": "song0034_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0148_outro",
+        "file_name": "song0148_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0027_intro",
+        "file_name": "song0027_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0012_intro",
+        "file_name": "song0012_intro.wav"
+      }
+    ],
+    "6": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0043_intro",
+        "file_name": "song0043_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0144_middle",
+        "file_name": "song0144_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0094_middle",
+        "file_name": "song0094_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0113_outro",
+        "file_name": "song0113_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0004_outro",
+        "file_name": "song0004_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0132_middle",
+        "file_name": "song0132_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0006_intro",
+        "file_name": "song0006_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0098_middle",
+        "file_name": "song0098_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0045_intro",
+        "file_name": "song0045_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0001_intro",
+        "file_name": "song0001_intro.wav"
+      }
+    ],
+    "7": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0007_middle",
+        "file_name": "song0007_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0097_intro",
+        "file_name": "song0097_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0100_intro",
+        "file_name": "song0100_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0019_outro",
+        "file_name": "song0019_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0063_outro",
+        "file_name": "song0063_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0146_intro",
+        "file_name": "song0146_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0143_intro",
+        "file_name": "song0143_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0079_intro",
+        "file_name": "song0079_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0094_outro",
+        "file_name": "song0094_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0128_intro",
+        "file_name": "song0128_intro.wav"
+      }
+    ],
+    "8": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0009_middle",
+        "file_name": "song0009_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0123_outro",
+        "file_name": "song0123_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0067_middle",
+        "file_name": "song0067_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0093_outro",
+        "file_name": "song0093_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0015_intro",
+        "file_name": "song0015_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0058_outro",
+        "file_name": "song0058_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0137_outro",
+        "file_name": "song0137_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0075_middle",
+        "file_name": "song0075_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0089_intro",
+        "file_name": "song0089_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0097_middle",
+        "file_name": "song0097_middle.wav"
+      }
+    ],
+    "9": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0097_outro",
+        "file_name": "song0097_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0008_middle",
+        "file_name": "song0008_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0016_middle",
+        "file_name": "song0016_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0144_intro",
+        "file_name": "song0144_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0149_middle",
+        "file_name": "song0149_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0148_intro",
+        "file_name": "song0148_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0129_outro",
+        "file_name": "song0129_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0020_intro",
+        "file_name": "song0020_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0144_outro",
+        "file_name": "song0144_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0009_intro",
+        "file_name": "song0009_intro.wav"
+      }
+    ],
+    "10": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0006_outro",
+        "file_name": "song0006_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0023_intro",
+        "file_name": "song0023_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0060_outro",
+        "file_name": "song0060_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0084_middle",
+        "file_name": "song0084_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0011_middle",
+        "file_name": "song0011_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0029_intro",
+        "file_name": "song0029_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0103_outro",
+        "file_name": "song0103_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0119_middle",
+        "file_name": "song0119_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0062_middle",
+        "file_name": "song0062_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0095_outro",
+        "file_name": "song0095_outro.wav"
+      }
+    ],
+    "11": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0032_middle",
+        "file_name": "song0032_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0081_outro",
+        "file_name": "song0081_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0071_middle",
+        "file_name": "song0071_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0132_intro",
+        "file_name": "song0132_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0107_outro",
+        "file_name": "song0107_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0060_middle",
+        "file_name": "song0060_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0035_outro",
+        "file_name": "song0035_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0150_intro",
+        "file_name": "song0150_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0002_outro",
+        "file_name": "song0002_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0016_intro",
+        "file_name": "song0016_intro.wav"
+      }
+    ],
+    "12": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0052_middle",
+        "file_name": "song0052_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0135_middle",
+        "file_name": "song0135_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0130_intro",
+        "file_name": "song0130_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0095_middle",
+        "file_name": "song0095_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0006_middle",
+        "file_name": "song0006_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0143_middle",
+        "file_name": "song0143_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0042_middle",
+        "file_name": "song0042_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0108_intro",
+        "file_name": "song0108_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0002_intro",
+        "file_name": "song0002_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0007_intro",
+        "file_name": "song0007_intro.wav"
+      }
+    ],
+    "13": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0084_intro",
+        "file_name": "song0084_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0021_intro",
+        "file_name": "song0021_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0077_intro",
+        "file_name": "song0077_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0047_outro",
+        "file_name": "song0047_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0022_intro",
+        "file_name": "song0022_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0037_outro",
+        "file_name": "song0037_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0105_middle",
+        "file_name": "song0105_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0074_outro",
+        "file_name": "song0074_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0010_outro",
+        "file_name": "song0010_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0052_intro",
+        "file_name": "song0052_intro.wav"
+      }
+    ],
+    "14": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0044_outro",
+        "file_name": "song0044_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0009_outro",
+        "file_name": "song0009_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0003_middle",
+        "file_name": "song0003_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0137_middle",
+        "file_name": "song0137_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0037_intro",
+        "file_name": "song0037_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0077_outro",
+        "file_name": "song0077_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0141_intro",
+        "file_name": "song0141_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0040_middle",
+        "file_name": "song0040_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0039_intro",
+        "file_name": "song0039_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0057_intro",
+        "file_name": "song0057_intro.wav"
+      }
+    ],
+    "15": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0142_middle",
+        "file_name": "song0142_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0150_middle",
+        "file_name": "song0150_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0115_middle",
+        "file_name": "song0115_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0052_outro",
+        "file_name": "song0052_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0100_outro",
+        "file_name": "song0100_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0134_outro",
+        "file_name": "song0134_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0048_intro",
+        "file_name": "song0048_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0143_outro",
+        "file_name": "song0143_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0134_middle",
+        "file_name": "song0134_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0134_intro",
+        "file_name": "song0134_intro.wav"
+      }
+    ],
+    "16": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0067_intro",
+        "file_name": "song0067_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0037_middle",
+        "file_name": "song0037_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0076_intro",
+        "file_name": "song0076_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0049_middle",
+        "file_name": "song0049_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0121_middle",
+        "file_name": "song0121_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0051_outro",
+        "file_name": "song0051_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0058_middle",
+        "file_name": "song0058_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0089_middle",
+        "file_name": "song0089_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0028_outro",
+        "file_name": "song0028_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0128_outro",
+        "file_name": "song0128_outro.wav"
+      }
+    ],
+    "17": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0062_intro",
+        "file_name": "song0062_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0025_outro",
+        "file_name": "song0025_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0083_middle",
+        "file_name": "song0083_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0124_middle",
+        "file_name": "song0124_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0068_middle",
+        "file_name": "song0068_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0040_outro",
+        "file_name": "song0040_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0084_outro",
+        "file_name": "song0084_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0090_middle",
+        "file_name": "song0090_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0069_outro",
+        "file_name": "song0069_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0132_outro",
+        "file_name": "song0132_outro.wav"
+      }
+    ],
+    "18": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0125_outro",
+        "file_name": "song0125_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0070_intro",
+        "file_name": "song0070_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0071_outro",
+        "file_name": "song0071_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0116_intro",
+        "file_name": "song0116_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0080_intro",
+        "file_name": "song0080_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0013_intro",
+        "file_name": "song0013_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0047_middle",
+        "file_name": "song0047_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0110_middle",
+        "file_name": "song0110_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0066_middle",
+        "file_name": "song0066_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0119_intro",
+        "file_name": "song0119_intro.wav"
+      }
+    ],
+    "19": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0140_outro",
+        "file_name": "song0140_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0020_outro",
+        "file_name": "song0020_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0038_intro",
+        "file_name": "song0038_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0146_middle",
+        "file_name": "song0146_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0085_intro",
+        "file_name": "song0085_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0003_intro",
+        "file_name": "song0003_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0109_intro",
+        "file_name": "song0109_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0104_middle",
+        "file_name": "song0104_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0053_outro",
+        "file_name": "song0053_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0051_intro",
+        "file_name": "song0051_intro.wav"
+      }
+    ],
+    "20": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0061_intro",
+        "file_name": "song0061_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0063_middle",
+        "file_name": "song0063_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0004_middle",
+        "file_name": "song0004_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0136_middle",
+        "file_name": "song0136_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0035_middle",
+        "file_name": "song0035_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0028_intro",
+        "file_name": "song0028_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0013_outro",
+        "file_name": "song0013_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0119_outro",
+        "file_name": "song0119_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0056_outro",
+        "file_name": "song0056_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0141_outro",
+        "file_name": "song0141_outro.wav"
+      }
+    ],
+    "21": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0126_middle",
+        "file_name": "song0126_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0068_intro",
+        "file_name": "song0068_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0129_middle",
+        "file_name": "song0129_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0072_intro",
+        "file_name": "song0072_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0117_middle",
+        "file_name": "song0117_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0066_outro",
+        "file_name": "song0066_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0030_outro",
+        "file_name": "song0030_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0098_outro",
+        "file_name": "song0098_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0055_middle",
+        "file_name": "song0055_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0109_outro",
+        "file_name": "song0109_outro.wav"
+      }
+    ],
+    "22": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0050_intro",
+        "file_name": "song0050_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0001_outro",
+        "file_name": "song0001_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0031_outro",
+        "file_name": "song0031_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0121_intro",
+        "file_name": "song0121_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0024_intro",
+        "file_name": "song0024_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0086_middle",
+        "file_name": "song0086_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0042_intro",
+        "file_name": "song0042_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0111_outro",
+        "file_name": "song0111_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0033_intro",
+        "file_name": "song0033_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0048_outro",
+        "file_name": "song0048_outro.wav"
+      }
+    ],
+    "23": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0114_outro",
+        "file_name": "song0114_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0136_intro",
+        "file_name": "song0136_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0140_middle",
+        "file_name": "song0140_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0033_middle",
+        "file_name": "song0033_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0093_middle",
+        "file_name": "song0093_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0023_outro",
+        "file_name": "song0023_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0008_outro",
+        "file_name": "song0008_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0013_middle",
+        "file_name": "song0013_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0049_intro",
+        "file_name": "song0049_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0041_outro",
+        "file_name": "song0041_outro.wav"
+      }
+    ],
+    "24": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0087_intro",
+        "file_name": "song0087_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0069_middle",
+        "file_name": "song0069_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0062_outro",
+        "file_name": "song0062_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0023_middle",
+        "file_name": "song0023_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0101_middle",
+        "file_name": "song0101_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0092_middle",
+        "file_name": "song0092_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0131_outro",
+        "file_name": "song0131_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0106_intro",
+        "file_name": "song0106_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0090_outro",
+        "file_name": "song0090_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0120_intro",
+        "file_name": "song0120_intro.wav"
+      }
+    ],
+    "25": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0085_middle",
+        "file_name": "song0085_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0042_outro",
+        "file_name": "song0042_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0049_outro",
+        "file_name": "song0049_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0115_outro",
+        "file_name": "song0115_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0091_middle",
+        "file_name": "song0091_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0076_middle",
+        "file_name": "song0076_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0078_intro",
+        "file_name": "song0078_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0029_outro",
+        "file_name": "song0029_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0127_intro",
+        "file_name": "song0127_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0075_intro",
+        "file_name": "song0075_intro.wav"
+      }
+    ],
+    "26": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0044_intro",
+        "file_name": "song0044_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0127_middle",
+        "file_name": "song0127_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0106_outro",
+        "file_name": "song0106_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0099_intro",
+        "file_name": "song0099_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0120_middle",
+        "file_name": "song0120_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0063_intro",
+        "file_name": "song0063_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0092_outro",
+        "file_name": "song0092_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0107_middle",
+        "file_name": "song0107_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0113_middle",
+        "file_name": "song0113_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0102_outro",
+        "file_name": "song0102_outro.wav"
+      }
+    ],
+    "27": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0038_middle",
+        "file_name": "song0038_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0061_outro",
+        "file_name": "song0061_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0133_outro",
+        "file_name": "song0133_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0102_middle",
+        "file_name": "song0102_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0109_middle",
+        "file_name": "song0109_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0145_middle",
+        "file_name": "song0145_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0108_outro",
+        "file_name": "song0108_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0079_outro",
+        "file_name": "song0079_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0142_intro",
+        "file_name": "song0142_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0055_outro",
+        "file_name": "song0055_outro.wav"
+      }
+    ],
+    "28": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0046_middle",
+        "file_name": "song0046_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0067_outro",
+        "file_name": "song0067_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0088_intro",
+        "file_name": "song0088_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0079_middle",
+        "file_name": "song0079_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0039_middle",
+        "file_name": "song0039_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0041_intro",
+        "file_name": "song0041_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0076_outro",
+        "file_name": "song0076_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0122_intro",
+        "file_name": "song0122_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0101_outro",
+        "file_name": "song0101_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0043_middle",
+        "file_name": "song0043_middle.wav"
+      }
+    ],
+    "29": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0125_intro",
+        "file_name": "song0125_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0036_outro",
+        "file_name": "song0036_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0112_middle",
+        "file_name": "song0112_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0045_middle",
+        "file_name": "song0045_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0110_intro",
+        "file_name": "song0110_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0015_outro",
+        "file_name": "song0015_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0139_intro",
+        "file_name": "song0139_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0022_outro",
+        "file_name": "song0022_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0096_middle",
+        "file_name": "song0096_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0029_middle",
+        "file_name": "song0029_middle.wav"
+      }
+    ],
+    "30": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0082_outro",
+        "file_name": "song0082_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0064_intro",
+        "file_name": "song0064_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0054_intro",
+        "file_name": "song0054_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0005_intro",
+        "file_name": "song0005_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0012_outro",
+        "file_name": "song0012_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0010_middle",
+        "file_name": "song0010_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0057_outro",
+        "file_name": "song0057_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0048_middle",
+        "file_name": "song0048_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0120_outro",
+        "file_name": "song0120_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0103_middle",
+        "file_name": "song0103_middle.wav"
+      }
+    ],
+    "31": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0075_outro",
+        "file_name": "song0075_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0032_outro",
+        "file_name": "song0032_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0018_intro",
+        "file_name": "song0018_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0082_intro",
+        "file_name": "song0082_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0113_intro",
+        "file_name": "song0113_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0130_outro",
+        "file_name": "song0130_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0061_middle",
+        "file_name": "song0061_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0014_outro",
+        "file_name": "song0014_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0117_outro",
+        "file_name": "song0117_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0070_outro",
+        "file_name": "song0070_outro.wav"
+      }
+    ],
+    "32": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0096_intro",
+        "file_name": "song0096_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0086_outro",
+        "file_name": "song0086_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0125_middle",
+        "file_name": "song0125_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0002_middle",
+        "file_name": "song0002_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0087_middle",
+        "file_name": "song0087_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0135_outro",
+        "file_name": "song0135_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0034_middle",
+        "file_name": "song0034_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0077_middle",
+        "file_name": "song0077_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0129_intro",
+        "file_name": "song0129_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0073_intro",
+        "file_name": "song0073_intro.wav"
+      }
+    ],
+    "33": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0058_intro",
+        "file_name": "song0058_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0033_outro",
+        "file_name": "song0033_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0099_middle",
+        "file_name": "song0099_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0073_outro",
+        "file_name": "song0073_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0021_middle",
+        "file_name": "song0021_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0016_outro",
+        "file_name": "song0016_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0011_outro",
+        "file_name": "song0011_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0091_intro",
+        "file_name": "song0091_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0111_intro",
+        "file_name": "song0111_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0068_outro",
+        "file_name": "song0068_outro.wav"
+      }
+    ],
+    "34": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0135_intro",
+        "file_name": "song0135_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0010_intro",
+        "file_name": "song0010_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0118_middle",
+        "file_name": "song0118_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0078_outro",
+        "file_name": "song0078_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0088_outro",
+        "file_name": "song0088_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0098_intro",
+        "file_name": "song0098_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0055_intro",
+        "file_name": "song0055_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0128_middle",
+        "file_name": "song0128_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0047_intro",
+        "file_name": "song0047_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0021_outro",
+        "file_name": "song0021_outro.wav"
+      }
+    ],
+    "35": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0046_intro",
+        "file_name": "song0046_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0043_outro",
+        "file_name": "song0043_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0003_outro",
+        "file_name": "song0003_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0110_outro",
+        "file_name": "song0110_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0140_intro",
+        "file_name": "song0140_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0022_middle",
+        "file_name": "song0022_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0102_intro",
+        "file_name": "song0102_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0005_outro",
+        "file_name": "song0005_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0053_intro",
+        "file_name": "song0053_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0014_middle",
+        "file_name": "song0014_middle.wav"
+      }
+    ],
+    "36": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0138_outro",
+        "file_name": "song0138_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0122_middle",
+        "file_name": "song0122_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0074_intro",
+        "file_name": "song0074_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0095_intro",
+        "file_name": "song0095_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0133_middle",
+        "file_name": "song0133_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0114_middle",
+        "file_name": "song0114_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0080_outro",
+        "file_name": "song0080_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0071_intro",
+        "file_name": "song0071_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0072_outro",
+        "file_name": "song0072_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0100_middle",
+        "file_name": "song0100_middle.wav"
+      }
+    ],
+    "37": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0138_intro",
+        "file_name": "song0138_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0085_outro",
+        "file_name": "song0085_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0147_middle",
+        "file_name": "song0147_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0138_middle",
+        "file_name": "song0138_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0103_intro",
+        "file_name": "song0103_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0118_outro",
+        "file_name": "song0118_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0091_outro",
+        "file_name": "song0091_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0069_intro",
+        "file_name": "song0069_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0054_outro",
+        "file_name": "song0054_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0015_middle",
+        "file_name": "song0015_middle.wav"
+      }
+    ],
+    "38": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0074_middle",
+        "file_name": "song0074_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0065_middle",
+        "file_name": "song0065_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0105_intro",
+        "file_name": "song0105_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0088_middle",
+        "file_name": "song0088_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0036_intro",
+        "file_name": "song0036_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0018_outro",
+        "file_name": "song0018_outro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0001_middle",
+        "file_name": "song0001_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0145_outro",
+        "file_name": "song0145_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0017_middle",
+        "file_name": "song0017_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0027_outro",
+        "file_name": "song0027_outro.wav"
+      }
+    ],
+    "39": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0070_middle",
+        "file_name": "song0070_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0012_middle",
+        "file_name": "song0012_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0089_outro",
+        "file_name": "song0089_outro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0124_intro",
+        "file_name": "song0124_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0031_middle",
+        "file_name": "song0031_middle.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0115_intro",
+        "file_name": "song0115_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0142_outro",
+        "file_name": "song0142_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0018_middle",
+        "file_name": "song0018_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0117_intro",
+        "file_name": "song0117_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0090_intro",
+        "file_name": "song0090_intro.wav"
+      }
+    ],
+    "40": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0082_middle",
+        "file_name": "song0082_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0005_middle",
+        "file_name": "song0005_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0107_intro",
+        "file_name": "song0107_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0030_middle",
+        "file_name": "song0030_middle.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0131_intro",
+        "file_name": "song0131_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0093_intro",
+        "file_name": "song0093_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0056_middle",
+        "file_name": "song0056_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0111_middle",
+        "file_name": "song0111_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0148_middle",
+        "file_name": "song0148_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0045_outro",
+        "file_name": "song0045_outro.wav"
+      }
+    ],
+    "41": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0104_intro",
+        "file_name": "song0104_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0145_intro",
+        "file_name": "song0145_intro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0108_middle",
+        "file_name": "song0108_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0083_intro",
+        "file_name": "song0083_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0019_intro",
+        "file_name": "song0019_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0123_intro",
+        "file_name": "song0123_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0017_outro",
+        "file_name": "song0017_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0060_intro",
+        "file_name": "song0060_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0065_intro",
+        "file_name": "song0065_intro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0149_outro",
+        "file_name": "song0149_outro.wav"
+      }
+    ],
+    "42": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0064_middle",
+        "file_name": "song0064_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0057_middle",
+        "file_name": "song0057_middle.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0020_middle",
+        "file_name": "song0020_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0017_intro",
+        "file_name": "song0017_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0116_outro",
+        "file_name": "song0116_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0080_middle",
+        "file_name": "song0080_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0086_intro",
+        "file_name": "song0086_intro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0008_intro",
+        "file_name": "song0008_intro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0106_middle",
+        "file_name": "song0106_middle.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0054_middle",
+        "file_name": "song0054_middle.wav"
+      }
+    ],
+    "43": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0094_intro",
+        "file_name": "song0094_intro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0065_outro",
+        "file_name": "song0065_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0130_middle",
+        "file_name": "song0130_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0099_outro",
+        "file_name": "song0099_outro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0139_outro",
+        "file_name": "song0139_outro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0116_middle",
+        "file_name": "song0116_middle.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0087_outro",
+        "file_name": "song0087_outro.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0104_outro",
+        "file_name": "song0104_outro.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0050_outro",
+        "file_name": "song0050_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0044_middle",
+        "file_name": "song0044_middle.wav"
+      }
+    ],
+    "44": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0051_middle",
+        "file_name": "song0051_middle.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0121_outro",
+        "file_name": "song0121_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0034_intro",
+        "file_name": "song0034_intro.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0126_intro",
+        "file_name": "song0126_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0030_intro",
+        "file_name": "song0030_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0112_intro",
+        "file_name": "song0112_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0073_middle",
+        "file_name": "song0073_middle.wav"
+      },
+      {
+        "order_in_pack": 8,
+        "clip_id": "song0041_middle",
+        "file_name": "song0041_middle.wav"
+      },
+      {
+        "order_in_pack": 9,
+        "clip_id": "song0150_outro",
+        "file_name": "song0150_outro.wav"
+      },
+      {
+        "order_in_pack": 10,
+        "clip_id": "song0007_outro",
+        "file_name": "song0007_outro.wav"
+      }
+    ],
+    "45": [
+      {
+        "order_in_pack": 1,
+        "clip_id": "song0064_outro",
+        "file_name": "song0064_outro.wav"
+      },
+      {
+        "order_in_pack": 2,
+        "clip_id": "song0024_outro",
+        "file_name": "song0024_outro.wav"
+      },
+      {
+        "order_in_pack": 3,
+        "clip_id": "song0036_middle",
+        "file_name": "song0036_middle.wav"
+      },
+      {
+        "order_in_pack": 4,
+        "clip_id": "song0092_intro",
+        "file_name": "song0092_intro.wav"
+      },
+      {
+        "order_in_pack": 5,
+        "clip_id": "song0118_intro",
+        "file_name": "song0118_intro.wav"
+      },
+      {
+        "order_in_pack": 6,
+        "clip_id": "song0147_intro",
+        "file_name": "song0147_intro.wav"
+      },
+      {
+        "order_in_pack": 7,
+        "clip_id": "song0035_intro",
+        "file_name": "song0035_intro.wav"
+      }
+    ]
+  }
+}

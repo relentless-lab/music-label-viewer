@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>音乐标注任务播放器</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+    }
+    .pack-info {
+      margin-bottom: 20px;
+    }
+    .clip-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .clip-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    audio {
+      width: 100%;
+      margin: 8px 0;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+    }
+    .hint {
+      font-size: 14px;
+      color: #555;
+    }
+    .error {
+      color: #c00;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>音乐标注任务播放器</h1>
+  <div id="app">正在加载任务……</div>
+
+  <script>
+    // 音频还是用 OSS
+    const BASE_AUDIO_URL = "https://music-clips-jp.oss-cn-shenzhen.aliyuncs.com/audio";
+    // packs.json 改成本地同目录文件
+    const PACKS_JSON_URL = "packs.json";
+
+
+    // 使用 hash 读取 pack
+    function getPackId() {
+      if (!window.location.hash) return null;
+      return window.location.hash.replace("#pack=", "").trim();
+    }
+
+    const packId = getPackId();
+    const app = document.getElementById("app");
+
+    if (!packId) {
+      app.innerHTML = `
+        <p class="error">缺少 pack 参数，例如：<code>#pack=1</code></p>
+      `;
+    } else {
+      fetch(PACKS_JSON_URL)
+        .then(resp => resp.json())
+        .then(data => {
+          const packs = data.packs || {};
+          const clips = packs[String(packId)];
+
+          if (!clips || clips.length === 0) {
+            app.innerHTML = `
+              <p class="error">找不到 pack_id = ${packId} 对应的 clip 列表。</p>
+            `;
+            return;
+          }
+
+          let html = `
+            <div class="pack-info">
+              <p>当前任务包编号：<strong>${packId}</strong> （本包共有 ${clips.length} 条 clip，建议全部标完）</p>
+              <p>请按顺序播放下面的音频，对每一条分别在问卷里填写对应的 <code>clip_id</code> 和标签。</p>
+            </div>
+          `;
+
+          clips.sort((a,b) => a.order_in_pack - b.order_in_pack);
+
+          clips.forEach((clip, idx) => {
+            const clipId = clip.clip_id;
+            const fileName = clip.file_name;
+            const audioUrl = BASE_AUDIO_URL.replace(/\/$/, "") + "/" + fileName;
+
+            html += `
+              <div class="clip-card">
+                <div class="clip-title">Clip ${idx+1} / ${clips.length}</div>
+                <div>clip_id：<code>${clipId}</code></div>
+                <audio controls src="${audioUrl}">
+                  您的浏览器不支持 audio 标签。
+                </audio>
+                <div class="hint">
+                  在问卷中，请把 <strong>clip_id</strong> 填写为：<code>${clipId}</code><br/>
+                  其他问题（风格、情绪、场景、乐器等）根据你听到的感觉填写。
+                </div>
+              </div>
+            `;
+          });
+
+          app.innerHTML = html;
+        })
+        .catch(err => {
+          console.error(err);
+          app.innerHTML = `
+            <p class="error">加载 packs.json 失败，请检查路径和权限。</p>
+          `;
+        });
+    }
+  </script>
+</body>
+</html>
