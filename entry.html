@@ -72,13 +72,13 @@
   </div>
 
   <script>
-    // ====== 你的 Supabase 配置 ======
+    // ====== Supabase 配置 ======
     const SUPABASE_URL = "https://mbpdyscamzjyknpnmidw.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
 
     // packs.json 里 pack 的总数量
     const PACK_COUNT = 47;
-    // ==================================
+    // ===========================
 
     function genToken() {
       if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
@@ -100,9 +100,9 @@
       msg.textContent = "正在为你分配任务，请稍候…";
 
       try {
-        // 1. 获取所有 assignments
+        // 1. 获取所有 assignments（包含 done 字段）
         const resp = await fetch(
-          `${SUPABASE_URL}/rest/v1/assignments?select=pack_id,annotator`,
+          `${SUPABASE_URL}/rest/v1/assignments?select=pack_id,annotator,done`,
           {
             headers: {
               apikey: SUPABASE_ANON_KEY,
@@ -124,19 +124,25 @@
           return;
         }
 
-        // 3. 统计各 pack 被分配次数
+        // 3. 统计各 pack 的「已完成」次数（done = true 才算）
         const counts = {};
         for (let n = 1; n <= PACK_COUNT; n++) {
           counts[String(n)] = 0;
         }
+
         assignments.forEach(row => {
           const pid = String(row.pack_id || "");
-          if (counts[pid] != null) counts[pid] += 1;
+          const done = String(row.done).toLowerCase() === "true"; // 兼容 true / "true"
+          if (done && counts[pid] != null) {
+            counts[pid] += 1;
+          }
         });
 
-        // 4. 找出当前最少分配次数的 pack 集合
+        // 4. 找出当前最少完成次数的 pack 集合
         const minCount = Math.min(...Object.values(counts));
-        const candidates = Object.keys(counts).filter(pid => counts[pid] === minCount);
+        const candidates = Object.keys(counts).filter(
+          pid => counts[pid] === minCount
+        );
 
         // 随机选一个 pack
         const bestPack = candidates[Math.floor(Math.random() * candidates.length)];
@@ -144,7 +150,7 @@
         const token = genToken();
         const now = new Date().toISOString();
 
-        // 5. 插入 assignments
+        // 5. 插入一条新的 assignment（此时 done = false）
         const insertResp = await fetch(
           `${SUPABASE_URL}/rest/v1/assignments`,
           {
