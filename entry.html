@@ -49,24 +49,36 @@
       color: #555;
       min-height: 20px;
     }
+    .disclaimer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #777;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
   <h1>日系音乐标注任务入口</h1>
   <p>请输入你的编号或昵称，系统会自动分配一组音乐给你标注（每人只能使用一个唯一昵称）。</p>
+
   <input id="annotator" placeholder="例如：A01 或 小王" />
   <button id="startBtn">开始标注</button>
+
   <div class="msg" id="msg"></div>
 
+  <!-- 免责声明 -->
+  <div class="disclaimer">
+    免责声明：本任务所使用的所有音乐片段均来自无版权或已获授权的音频素材。如发现存在版权争议的内容，我们会在收到通知后立即下架并处理。
+  </div>
+
   <script>
-    // ====== 你需要改的配置 ======
+    // ====== 你的 Supabase 配置 ======
     const SUPABASE_URL = "https://mbpdyscamzjyknpnmidw.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
 
-
-    // packs 总数量（例如你 packs.json 里有 47 个 pack，就写 47）
+    // packs.json 里 pack 的总数量
     const PACK_COUNT = 47;
-    // ============================
+    // ==================================
 
     function genToken() {
       if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
@@ -88,14 +100,14 @@
       msg.textContent = "正在为你分配任务，请稍候…";
 
       try {
-        // 1. 拉取所有 assignments （只拿 pack_id 和 annotator）
+        // 1. 获取所有 assignments
         const resp = await fetch(
           `${SUPABASE_URL}/rest/v1/assignments?select=pack_id,annotator`,
           {
             headers: {
               apikey: SUPABASE_ANON_KEY,
-              Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-            },
+              Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+            }
           }
         );
         if (!resp.ok) throw new Error("load assignments failed");
@@ -103,40 +115,36 @@
 
         // 2. 昵称唯一检查（忽略大小写）
         const lower = name.toLowerCase();
-        const exists = assignments.some((row) => {
-          return (row.annotator || "").toLowerCase() === lower;
-        });
+        const exists = assignments.some(row =>
+          (row.annotator || "").toLowerCase() === lower
+        );
         if (exists) {
           msg.textContent = "这个昵称已经被使用了，请换一个（可以在后面加数字）。";
           btn.disabled = false;
           return;
         }
 
-        // 3. 统计 1..PACK_COUNT 的分配次数
+        // 3. 统计各 pack 被分配次数
         const counts = {};
         for (let n = 1; n <= PACK_COUNT; n++) {
           counts[String(n)] = 0;
         }
-        assignments.forEach((row) => {
+        assignments.forEach(row => {
           const pid = String(row.pack_id || "");
           if (counts[pid] != null) counts[pid] += 1;
         });
 
-        // 4. 找到当前分配次数最少的 pack
-        let bestPack = "1";
-        let bestCount = counts["1"];
-        for (let n = 1; n <= PACK_COUNT; n++) {
-          const pid = String(n);
-          if (counts[pid] < bestCount) {
-            bestPack = pid;
-            bestCount = counts[pid];
-          }
-        }
+        // 4. 找出当前最少分配次数的 pack 集合
+        const minCount = Math.min(...Object.values(counts));
+        const candidates = Object.keys(counts).filter(pid => counts[pid] === minCount);
+
+        // 随机选一个 pack
+        const bestPack = candidates[Math.floor(Math.random() * candidates.length)];
 
         const token = genToken();
         const now = new Date().toISOString();
 
-        // 5. 往 assignments 表插入一条记录
+        // 5. 插入 assignments
         const insertResp = await fetch(
           `${SUPABASE_URL}/rest/v1/assignments`,
           {
@@ -145,7 +153,7 @@
               apikey: SUPABASE_ANON_KEY,
               Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
               "Content-Type": "application/json",
-              Prefer: "return=minimal",
+              Prefer: "return=minimal"
             },
             body: JSON.stringify([
               {
@@ -153,23 +161,24 @@
                 token: token,
                 pack_id: bestPack,
                 annotator: name,
-                done: false,
-              },
-            ]),
+                done: false
+              }
+            ])
           }
         );
         if (!insertResp.ok) {
           const t = await insertResp.text();
-          console.error("insert error", t);
+          console.error("insert error:", t);
           throw new Error("insert assignment failed");
         }
 
-        // 6. 跳转到 player.html
+        // 6. 跳转到标注页面
         const url =
           `player.html?pack=${encodeURIComponent(bestPack)}` +
           `&token=${encodeURIComponent(token)}` +
           `&annotator=${encodeURIComponent(name)}`;
         window.location.href = url;
+
       } catch (err) {
         console.error(err);
         msg.textContent = "分配失败，请稍后再试，或联系任务发起人。";
