@@ -136,20 +136,19 @@
   <div class="export-box" id="exportBox" style="display:none;">
     <div>
       <div>当前任务包：<strong id="packIdLabel"></strong></div>
-      <div>说明：每条 clip 的「情绪 + 场景 + 乐器」为必填，全部填完再提交。</div>
+      <div>说明：每条 clip 的「情绪（1~2 个）+ 场景 + 乐器」为必填，全部填完再提交。</div>
     </div>
     <button class="primary" id="exportBtn">提交本包标注</button>
   </div>
 
   <script>
-    // ====== 你需要改的配置 ======
+    // ====== 配置 ======
     const BASE_AUDIO_URL = "https://music-clips-jp.oss-cn-shenzhen.aliyuncs.com/audio";
-    const PACKS_JSON_URL = "packs.json"; // 与 player.html 同目录
+    const PACKS_JSON_URL = "packs.json";
 
     const SUPABASE_URL = "https://mbpdyscamzjyknpnmidw.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
-
-    // ============================
+    // ==================
 
     function getParam(name) {
       const params = new URLSearchParams(window.location.search);
@@ -194,8 +193,8 @@
             <p>操作说明：</p>
             <ul>
               <li>按顺序播放每一条音频。</li>
-              <li>为每条 clip 选择一个整体情绪、若干场景标签、若干乐器标签，并可填写一句话描述。</li>
-              <li><strong>情绪 + 场景 + 乐器为必填</strong>，否则无法提交。</li>
+              <li>为每条 clip 选择 1~2 个整体情绪、若干场景标签、若干乐器标签，并可填写一句话描述。</li>
+              <li><strong>情绪（1~2 个）+ 场景 + 乐器为必填</strong>，否则无法提交。</li>
             </ul>
           </div>
         `;
@@ -222,17 +221,17 @@
               </div>
 
               <div class="field-group">
-                <span class="field-label">1）整体情绪（单选，必选）</span>
-                <label><input type="radio" name="${moodName}" value="bright_daily"> 明亮/日常</label>
-                <label><input type="radio" name="${moodName}" value="anime_youth"> 日漫/青春</label>
-                <label><input type="radio" name="${moodName}" value="sad"> 伤感/忧郁</label>
-                <label><input type="radio" name="${moodName}" value="healing"> 治愈/温柔</label>
-                <label><input type="radio" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
-                <label><input type="radio" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
-                <label><input type="radio" name="${moodName}" value="mysterious"> 神秘/奇异</label>
-                <label><input type="radio" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
-                <label><input type="radio" name="${moodName}" value="comedy"> 搞笑/沙雕</label>
-                <label><input type="radio" name="${moodName}" value="other"> 其他/难以判断</label>
+                <span class="field-label">1）整体情绪（多选，1~2 个，必选）</span>
+                <label><input type="checkbox" name="${moodName}" value="bright_daily"> 明亮/日常</label>
+                <label><input type="checkbox" name="${moodName}" value="anime_youth"> 日漫/青春</label>
+                <label><input type="checkbox" name="${moodName}" value="sad"> 伤感/忧郁</label>
+                <label><input type="checkbox" name="${moodName}" value="healing"> 治愈/温柔</label>
+                <label><input type="checkbox" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
+                <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
+                <label><input type="checkbox" name="${moodName}" value="mysterious"> 神秘/奇异</label>
+                <label><input type="checkbox" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
+                <label><input type="checkbox" name="${moodName}" value="comedy"> 搞笑/沙雕</label>
+                <label><input type="checkbox" name="${moodName}" value="other"> 其他/难以判断</label>
               </div>
 
               <div class="field-group">
@@ -240,9 +239,11 @@
                 <!-- 日常/校园系 -->
                 <label><input type="checkbox" name="${sceneName}" value="school_class"> 校园/教室</label>
                 <label><input type="checkbox" name="${sceneName}" value="after_school_club"> 放学/社团活动</label>
+                <label><input type="checkbox" name="${sceneName}" value="anime_rooftop"> 学校天台</label>
                 <label><input type="checkbox" name="${sceneName}" value="city_street_day"> 白天城市街道</label>
                 <label><input type="checkbox" name="${sceneName}" value="city_street_night"> 夜晚霓虹街道</label>
                 <label><input type="checkbox" name="${sceneName}" value="train_commute"> 电车/地铁通勤</label>
+                <label><input type="checkbox" name="${sceneName}" value="anime_rail_crossing"> 铁路道口/平交道</label>
                 <label><input type="checkbox" name="${sceneName}" value="room_alone"> 室内/自己房间</label>
                 <br/>
                 <!-- 情感/剧情 -->
@@ -250,9 +251,13 @@
                 <label><input type="checkbox" name="${sceneName}" value="reminiscence_flashback"> 回忆/回想场景</label>
                 <label><input type="checkbox" name="${sceneName}" value="farewell"> 告别/离别</label>
                 <label><input type="checkbox" name="${sceneName}" value="everyday_montage"> 日常蒙太奇</label>
+                <label><input type="checkbox" name="${sceneName}" value="anime_op_ed"> 日漫 OP/ED 镜头感</label>
                 <br/>
-                <!-- 氛围/季节 -->
+                <!-- 季节/氛围 -->
+                <label><input type="checkbox" name="${sceneName}" value="spring_cherry"> 春天/樱花/入学</label>
+                <label><input type="checkbox" name="${sceneName}" value="summer_holiday"> 夏日/暑假午后</label>
                 <label><input type="checkbox" name="${sceneName}" value="summer_festival"> 夏日祭/烟花大会</label>
+                <label><input type="checkbox" name="${sceneName}" value="autumn_leaves"> 秋天/枫叶</label>
                 <label><input type="checkbox" name="${sceneName}" value="rainy_city"> 雨天/打伞行走</label>
                 <label><input type="checkbox" name="${sceneName}" value="snow_scene"> 雪景/冬日</label>
                 <label><input type="checkbox" name="${sceneName}" value="nature_field"> 草地/森林/山/河</label>
@@ -311,7 +316,7 @@
         app.innerHTML = `<p class="error">加载 packs.json 失败，请检查路径和权限。</p>`;
       });
 
-    // 点击提交：收集整包 → 写入 Supabase（带必填检查）
+    // 提交：带必填检查（情绪 1~2 个，场景≥1，乐器≥1）
     exportBtn.addEventListener("click", async () => {
       if (!currentClips.length) return;
 
@@ -323,7 +328,7 @@
       }
 
       const rows = [];
-      const incomplete = []; // 没填完整的 clip 序号列表
+      const incomplete = []; // 记录没填完整/不合规的 clip 序号
 
       currentClips.forEach(clip => {
         const clipId = clip.clip_id;
@@ -332,26 +337,26 @@
         const instName  = `inst_${clipId}`;
         const noteId    = `note_${clipId}`;
 
-        const moodEl = document.querySelector(`input[name="${moodName}"]:checked`);
-        const mood = moodEl ? moodEl.value : "";
-
+        const moodEls = Array.from(document.querySelectorAll(`input[name="${moodName}"]:checked`));
         const sceneEls = Array.from(document.querySelectorAll(`input[name="${sceneName}"]:checked`));
-        const scenes = sceneEls.map(el => el.value).join(";");
+        const instEls  = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
 
-        const instEls = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
-        const insts = instEls.map(el => el.value).join(";");
+        const moodCount = moodEls.length;
+        const moods  = moodEls.map(el => el.value).join(";");
+        const scenes = sceneEls.map(el => el.value).join(";");
+        const insts  = instEls.map(el => el.value).join(";");
 
         const note = (document.getElementById(noteId)?.value || "").replace(/\r?\n/g, " ");
 
-        // 必填检查：情绪 + 场景 + 乐器 至少要有
-        if (!mood || !scenes || !insts) {
+        // 必填/数量检查
+        if (moodCount < 1 || moodCount > 2 || !scenes || !insts) {
           incomplete.push(clip.order_in_pack);
         }
 
         rows.push({
           order_in_pack: clip.order_in_pack,
           clip_id: clipId,
-          mood: mood,
+          mood: moods,
           scenes: scenes,
           instruments: insts,
           note: note
@@ -360,9 +365,9 @@
 
       if (incomplete.length > 0) {
         alert(
-          "还有这些 clip 没填完整（缺少情绪/场景/乐器）：\n\n" +
+          "还有这些 clip 没填完整或情绪选择超过 2 个：\n\n" +
           incomplete.join(", ") +
-          "\n\n请补全后再提交。"
+          "\n\n每条 clip 需要：\n- 1~2 个情绪\n- ≥1 个场景\n- ≥1 个乐器\n请补全后再提交。"
         );
         return;
       }
@@ -380,7 +385,7 @@
 
         // 1) 写 labels 表
         const labelRows = rows.map(r => ({
-          timestamp: now,             // 如果表里是 created_at，就改成 created_at: now
+          timestamp: now,   // 如果 labels 表是 created_at 字段，就改成 created_at: now
           annotator: annotator,
           pack_id: packId,
           order_in_pack: r.order_in_pack,
@@ -425,7 +430,6 @@
           if (!resp2.ok) {
             const t2 = await resp2.text();
             console.error("assignments error:", t2);
-            // 标记失败影响不大，这里不再 throw
           }
         }
 
