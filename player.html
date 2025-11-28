@@ -134,6 +134,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>音乐标注任务播放器</h1>
 
@@ -153,13 +154,12 @@
   </div>
 
   <script>
-    // ====== 配置 ======
     const BASE_AUDIO_URL = "https://music-clips-jp.oss-cn-shenzhen.aliyuncs.com/audio";
     const PACKS_JSON_URL = "packs.json";
 
     const SUPABASE_URL = "https://mbpdyscamzjyknpnmidw.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
-    // ==================
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
 
     function getParam(name) {
       const params = new URLSearchParams(window.location.search);
@@ -182,7 +182,6 @@
 
     let currentClips = [];
 
-    // 给每个情绪组加“最多 2 个”的前端限制
     function setupMoodLimit() {
       currentClips.forEach(clip => {
         const moodName = `mood_${clip.clip_id}`;
@@ -199,7 +198,6 @@
       });
     }
 
-    // 加载 packs.json 并渲染
     fetch(PACKS_JSON_URL)
       .then(resp => resp.json())
       .then(data => {
@@ -232,11 +230,11 @@
           const fileName = clip.file_name;
           const audioUrl = BASE_AUDIO_URL.replace(/\/$/, "") + "/" + fileName;
 
-          const moodName  = `mood_${clipId}`;
+          const moodName = `mood_${clipId}`;
           const tempoName = `tempo_${clipId}`;
           const sceneName = `scene_${clipId}`;
-          const instName  = `inst_${clipId}`;
-          const noteId    = `note_${clipId}`;
+          const instName = `inst_${clipId}`;
+          const noteId = `note_${clipId}`;
 
           html += `
             <div class="clip-card">
@@ -245,34 +243,37 @@
               <audio controls src="${audioUrl}">
                 您的浏览器不支持 audio 标签。
               </audio>
-              <div class="hint">
-                系统会自动记录该 clip 的标注，请专注于听感和填写即可。
-              </div>
+              <div class="hint">系统会自动记录该 clip 的标注，请专注于听感和填写即可。</div>
 
-              <!-- 情绪 -->
               <div class="field-group">
                 <div class="field-label">1）整体情绪（多选，1~2 个，必选）</div>
+
                 <div class="option-row">
                   <label><input type="checkbox" name="${moodName}" value="bright_daily"> 明亮/日常</label>
                   <label><input type="checkbox" name="${moodName}" value="anime_youth"> 日漫/青春</label>
-                  <label><input type="checkbox" name="${moodName}" value="sad"> 伤感/忧郁</label>
-                  <label><input type="checkbox" name="${moodName}" value="healing_up"> 治愈/向上</label>
+                  <label><input type="checkbox" name="${moodName}" value="melancholic_be"> BE感/遗憾</label>
+                  <label><input type="checkbox" name="${moodName}" value="sad_emo"> 伤心/悲伤/emo</label>
                 </div>
+
                 <div class="option-row">
+                  <label><input type="checkbox" name="${moodName}" value="healing_up"> 治愈/向上</label>
                   <label><input type="checkbox" name="${moodName}" value="calm_warm"> 平静/温柔</label>
                   <label><input type="checkbox" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
                   <label><input type="checkbox" name="${moodName}" value="hot_blood"> 热血/高昂</label>
-                  <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
                 </div>
+
                 <div class="option-row">
+                  <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
                   <label><input type="checkbox" name="${moodName}" value="mysterious"> 神秘/奇异</label>
                   <label><input type="checkbox" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
                   <label><input type="checkbox" name="${moodName}" value="comedy"> 搞笑/沙雕</label>
+                </div>
+
+                <div class="option-row">
                   <label><input type="checkbox" name="${moodName}" value="other"> 其他/难以判断</label>
                 </div>
               </div>
 
-              <!-- 节奏 -->
               <div class="field-group">
                 <div class="field-label">2）节奏感（单选，必选）</div>
                 <div class="option-row">
@@ -282,7 +283,6 @@
                 </div>
               </div>
 
-              <!-- 场景：按类别分组 -->
               <div class="field-group">
                 <div class="field-label">3）画面场景（多选，至少 1 个） 注：并不是每个细分类型都必须选择，下同</div>
 
@@ -344,9 +344,9 @@
                 </div>
               </div>
 
-              <!-- 乐器 -->
               <div class="field-group">
                 <div class="field-label">4）主要乐器（多选，至少 1 个）</div>
+
                 <div class="sub-label">传统 / Band 配器</div>
                 <div class="option-row">
                   <label><input type="checkbox" name="${instName}" value="piano"> 钢琴</label>
@@ -384,7 +384,6 @@
                 </div>
               </div>
 
-              <!-- 一句话描述 -->
               <div class="field-group">
                 <div class="field-label">5）一句话描述（自由填写，可选，这个尽量填写吧求求啦）</div>
                 <textarea id="${noteId}" placeholder="例如：这个风格有点像新海诚曲风，夏日祭烟花结束后，两个人一起走在河边回家的路上，有一点宿命感但整体偏治愈……"></textarea>
@@ -394,14 +393,13 @@
         });
 
         app.innerHTML = html;
-        setupMoodLimit(); // 渲染完再挂载“最多 2 个情绪”的逻辑
+        setupMoodLimit();
       })
       .catch(err => {
         console.error(err);
         app.innerHTML = `<p class="error">加载 packs.json 失败，请检查路径和权限。</p>`;
       });
 
-    // 提交：带必填检查（情绪 1~2 个，场景≥1，乐器≥1，节奏必选）
     exportBtn.addEventListener("click", async () => {
       if (!currentClips.length) return;
 
@@ -413,30 +411,29 @@
       }
 
       const rows = [];
-      const incomplete = []; // 记录没填完整/不合规的 clip 序号
+      const incomplete = [];
 
       currentClips.forEach(clip => {
         const clipId = clip.clip_id;
-        const moodName  = `mood_${clipId}`;
+        const moodName = `mood_${clipId}`;
         const tempoName = `tempo_${clipId}`;
         const sceneName = `scene_${clipId}`;
-        const instName  = `inst_${clipId}`;
-        const noteId    = `note_${clipId}`;
+        const instName = `inst_${clipId}`;
+        const noteId = `note_${clipId}`;
 
-        const moodEls  = Array.from(document.querySelectorAll(`input[name="${moodName}"]:checked`));
+        const moodEls = Array.from(document.querySelectorAll(`input[name="${moodName}"]:checked`));
         const sceneEls = Array.from(document.querySelectorAll(`input[name="${sceneName}"]:checked`));
-        const instEls  = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
-        const tempoEl  = document.querySelector(`input[name="${tempoName}"]:checked`);
+        const instEls = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
+        const tempoEl = document.querySelector(`input[name="${tempoName}"]:checked`);
 
         const moodCount = moodEls.length;
-        const moods  = moodEls.map(el => el.value).join(";");
+        const moods = moodEls.map(el => el.value).join(";");
         const scenes = sceneEls.map(el => el.value).join(";");
-        const insts  = instEls.map(el => el.value).join(";");
-        const tempo  = tempoEl ? tempoEl.value : "";
+        const insts = instEls.map(el => el.value).join(";");
+        const tempo = tempoEl ? tempoEl.value : "";
 
         const note = (document.getElementById(noteId)?.value || "").replace(/\r?\n/g, " ");
 
-        // 必填/数量检查：情绪 1~2 个；场景≥1；乐器≥1；节奏必选
         if (moodCount < 1 || moodCount > 2 || !scenes || !insts || !tempo) {
           incomplete.push(clip.order_in_pack);
         }
@@ -472,9 +469,8 @@
       try {
         const now = new Date().toISOString();
 
-        // 1) 写 labels 表
         const labelRows = rows.map(r => ({
-          created_at: now,          // 如果 labels 表是 created_at，就改成 created_at: now
+          created_at: now,
           annotator: annotator,
           pack_id: packId,
           order_in_pack: r.order_in_pack,
@@ -496,13 +492,13 @@
           },
           body: JSON.stringify(labelRows)
         });
+
         if (!resp1.ok) {
           const t = await resp1.text();
           console.error("labels error:", t);
           throw new Error("写 labels 失败");
         }
 
-        // 2) 根据 token 把 assignments.done 标为 true
         if (token) {
           const resp2 = await fetch(
             `${SUPABASE_URL}/rest/v1/assignments?token=eq.${encodeURIComponent(token)}`,
@@ -517,6 +513,7 @@
               body: JSON.stringify({ done: true })
             }
           );
+
           if (!resp2.ok) {
             const t2 = await resp2.text();
             console.error("assignments error:", t2);
