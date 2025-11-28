@@ -6,28 +6,53 @@
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 720px;
+      max-width: 900px;
       margin: 40px auto;
-      padding: 0 16px;
+      padding: 0 16px 80px;
       line-height: 1.6;
+      background: #fafafa;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .top-bar {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .top-bar input {
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      min-width: 160px;
     }
     .pack-info {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      font-size: 14px;
     }
     .clip-card {
-      border: 1px solid #eee;
       border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      background: #fff;
     }
     .clip-title {
       font-weight: bold;
       margin-bottom: 6px;
+      font-size: 16px;
+    }
+    .clip-id {
+      font-size: 14px;
+      margin-bottom: 6px;
     }
     audio {
       width: 100%;
-      margin: 8px 0;
+      margin: 8px 0 12px;
     }
     code {
       background: #f0f0f0;
@@ -36,91 +61,321 @@
       font-size: 90%;
     }
     .hint {
-      font-size: 14px;
+      font-size: 12px;
       color: #555;
+      margin-bottom: 8px;
+    }
+    .field-group {
+      margin: 6px 0;
+      font-size: 13px;
+    }
+    .field-label {
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    .field-group label {
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 50px;
+      resize: vertical;
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+    .export-box {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(250,250,250,0.96);
+      border-top: 1px solid #e3e3e3;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .export-box strong {
+      color: #222;
+    }
+    button.primary {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #111827;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button.primary:disabled {
+      opacity: 0.6;
+      cursor: default;
     }
     .error {
       color: #c00;
       font-weight: bold;
+      margin-top: 12px;
     }
   </style>
 </head>
 <body>
   <h1>音乐标注任务播放器</h1>
+
+  <div class="top-bar">
+    标注人编号 / 昵称：
+    <input id="annotatorInput" placeholder="A01 / 小王 等" />
+  </div>
+
   <div id="app">正在加载任务……</div>
 
+  <div class="export-box" id="exportBox" style="display:none;">
+    <div>
+      <div>当前任务包：<strong id="packIdLabel"></strong></div>
+      <div>请先确认所有 clip 都已填写，再点击右侧按钮提交本包标注。</div>
+    </div>
+    <button class="primary" id="exportBtn">提交本包标注</button>
+  </div>
+
   <script>
-    // 音频还是用 OSS
+    // ====== 你需要改的配置 ======
     const BASE_AUDIO_URL = "https://music-clips-jp.oss-cn-shenzhen.aliyuncs.com/audio";
-    // packs.json 改成本地同目录文件
-    const PACKS_JSON_URL = "packs.json";
+    const PACKS_JSON_URL = "packs.json"; // 与 player.html 同目录
 
+    const SUPABASE_URL = "https://mbpdyscamzjyknpnmidw.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1icGR5c2NhbXpqeWtucG5taWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyOTI4NjcsImV4cCI6MjA3OTg2ODg2N30.SIbSn-YtTsTYwpEYnepswgNrTxwMfE8cr55I0I04ydw";
 
-    // 使用 hash 读取 pack
-    function getPackId() {
-      if (!window.location.hash) return null;
-      return window.location.hash.replace("#pack=", "").trim();
+    // ============================
+
+    function getParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
     }
 
-    const packId = getPackId();
+    const packId = getParam("pack") || "1";
+    const token = getParam("token") || "";
+    const annotatorFromUrl = getParam("annotator") || "";
+
     const app = document.getElementById("app");
+    const exportBox = document.getElementById("exportBox");
+    const packIdLabel = document.getElementById("packIdLabel");
+    const exportBtn = document.getElementById("exportBtn");
+    const annotatorInput = document.getElementById("annotatorInput");
 
-    if (!packId) {
-      app.innerHTML = `
-        <p class="error">缺少 pack 参数，例如：<code>#pack=1</code></p>
-      `;
-    } else {
-      fetch(PACKS_JSON_URL)
-        .then(resp => resp.json())
-        .then(data => {
-          const packs = data.packs || {};
-          const clips = packs[String(packId)];
+    if (annotatorFromUrl) {
+      annotatorInput.value = annotatorFromUrl;
+    }
 
-          if (!clips || clips.length === 0) {
-            app.innerHTML = `
-              <p class="error">找不到 pack_id = ${packId} 对应的 clip 列表。</p>
-            `;
-            return;
-          }
+    let currentClips = [];
 
-          let html = `
-            <div class="pack-info">
-              <p>当前任务包编号：<strong>${packId}</strong> （本包共有 ${clips.length} 条 clip，建议全部标完）</p>
-              <p>请按顺序播放下面的音频，对每一条分别在问卷里填写对应的 <code>clip_id</code> 和标签。</p>
+    // 加载 packs.json 并渲染
+    fetch(PACKS_JSON_URL)
+      .then(resp => resp.json())
+      .then(data => {
+        const packs = data.packs || {};
+        const clips = packs[String(packId)];
+
+        if (!clips || clips.length === 0) {
+          app.innerHTML = `<p class="error">找不到 pack_id = ${packId} 对应的 clip 列表。</p>`;
+          return;
+        }
+
+        currentClips = clips.slice().sort((a,b) => a.order_in_pack - b.order_in_pack);
+        packIdLabel.textContent = packId;
+        exportBox.style.display = "flex";
+
+        let html = `
+          <div class="pack-info">
+            <p>当前任务包编号：<strong>${packId}</strong> （本包共有 ${currentClips.length} 条 clip，建议全部标完）</p>
+            <p>操作说明：</p>
+            <ul>
+              <li>按顺序播放每一条音频。</li>
+              <li>为每条 clip 选择一个整体情绪、若干场景标签、若干乐器标签，并可填写一句话描述。</li>
+              <li>全部填写完成后，点击右下角 <strong>“提交本包标注”</strong>。</li>
+            </ul>
+          </div>
+        `;
+
+        currentClips.forEach((clip, idx) => {
+          const clipId = clip.clip_id;
+          const fileName = clip.file_name;
+          const audioUrl = BASE_AUDIO_URL.replace(/\/$/, "") + "/" + fileName;
+
+          const moodName = `mood_${clipId}`;
+          const sceneName = `scene_${clipId}`;
+          const instName  = `inst_${clipId}`;
+          const noteId    = `note_${clipId}`;
+
+          html += `
+            <div class="clip-card">
+              <div class="clip-title">Clip ${idx+1} / ${currentClips.length}</div>
+              <div class="clip-id">clip_id：<code>${clipId}</code></div>
+              <audio controls src="${audioUrl}">
+                您的浏览器不支持 audio 标签。
+              </audio>
+              <div class="hint">
+                系统会自动记录该 clip 的标注，请专注于听感和填写即可。
+              </div>
+
+              <div class="field-group">
+                <span class="field-label">1）整体情绪（单选）</span>
+                <label><input type="radio" name="${moodName}" value="happy"> 明亮/开心</label>
+                <label><input type="radio" name="${moodName}" value="sad"> 伤感/忧郁</label>
+                <label><input type="radio" name="${moodName}" value="healing"> 治愈/平静</label>
+                <label><input type="radio" name="${moodName}" value="epic"> 宿命/史诗感</label>
+                <label><input type="radio" name="${moodName}" value="other"> 其他/难以判断</label>
+              </div>
+
+              <div class="field-group">
+                <span class="field-label">2）画面场景（多选）</span>
+                <label><input type="checkbox" name="${sceneName}" value="city"> 城市街道</label>
+                <label><input type="checkbox" name="${sceneName}" value="school"> 校园/教室</label>
+                <label><input type="checkbox" name="${sceneName}" value="nature"> 草地/森林/山/河</label>
+                <label><input type="checkbox" name="${sceneName}" value="home"> 室内/房间</label>
+                <label><input type="checkbox" name="${sceneName}" value="night"> 夜晚/灯光</label>
+                <label><input type="checkbox" name="${sceneName}" value="other"> 其他</label>
+              </div>
+
+              <div class="field-group">
+                <span class="field-label">3）主要乐器（多选）</span>
+                <label><input type="checkbox" name="${instName}" value="piano"> 钢琴</label>
+                <label><input type="checkbox" name="${instName}" value="strings"> 弦乐</label>
+                <label><input type="checkbox" name="${instName}" value="guitar"> 吉他</label>
+                <label><input type="checkbox" name="${instName}" value="drums"> 鼓/打击</label>
+                <label><input type="checkbox" name="${instName}" value="synth"> 合成器/电子</label>
+                <label><input type="checkbox" name="${instName}" value="vocal"> 人声/合唱</label>
+              </div>
+
+              <div class="field-group">
+                <div class="field-label">4）一句话描述（自由填写）</div>
+                <textarea id="${noteId}" placeholder="例如：夏天傍晚在城市街道散步，有一点宿命感但整体偏治愈……"></textarea>
+              </div>
             </div>
           `;
-
-          clips.sort((a,b) => a.order_in_pack - b.order_in_pack);
-
-          clips.forEach((clip, idx) => {
-            const clipId = clip.clip_id;
-            const fileName = clip.file_name;
-            const audioUrl = BASE_AUDIO_URL.replace(/\/$/, "") + "/" + fileName;
-
-            html += `
-              <div class="clip-card">
-                <div class="clip-title">Clip ${idx+1} / ${clips.length}</div>
-                <div>clip_id：<code>${clipId}</code></div>
-                <audio controls src="${audioUrl}">
-                  您的浏览器不支持 audio 标签。
-                </audio>
-                <div class="hint">
-                  在问卷中，请把 <strong>clip_id</strong> 填写为：<code>${clipId}</code><br/>
-                  其他问题（风格、情绪、场景、乐器等）根据你听到的感觉填写。
-                </div>
-              </div>
-            `;
-          });
-
-          app.innerHTML = html;
-        })
-        .catch(err => {
-          console.error(err);
-          app.innerHTML = `
-            <p class="error">加载 packs.json 失败，请检查路径和权限。</p>
-          `;
         });
-    }
+
+        app.innerHTML = html;
+      })
+      .catch(err => {
+        console.error(err);
+        app.innerHTML = `<p class="error">加载 packs.json 失败，请检查路径和权限。</p>`;
+      });
+
+    // 点击提交：收集整包 → 写入 Supabase
+    exportBtn.addEventListener("click", async () => {
+      if (!currentClips.length) return;
+
+      const annotator = (annotatorInput.value || "").trim();
+      if (!annotator) {
+        alert("请先填写上方的编号 / 昵称。");
+        annotatorInput.focus();
+        return;
+      }
+
+      const rows = [];
+
+      currentClips.forEach(clip => {
+        const clipId = clip.clip_id;
+        const moodName = `mood_${clipId}`;
+        const sceneName = `scene_${clipId}`;
+        const instName  = `inst_${clipId}`;
+        const noteId    = `note_${clipId}`;
+
+        const moodEl = document.querySelector(`input[name="${moodName}"]:checked`);
+        const mood = moodEl ? moodEl.value : "";
+
+        const sceneEls = Array.from(document.querySelectorAll(`input[name="${sceneName}"]:checked`));
+        const scenes = sceneEls.map(el => el.value).join(";");
+
+        const instEls = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
+        const insts = instEls.map(el => el.value).join(";");
+
+        const note = (document.getElementById(noteId)?.value || "").replace(/\r?\n/g, " ");
+
+        rows.push({
+          order_in_pack: clip.order_in_pack,
+          clip_id: clipId,
+          mood: mood,
+          scenes: scenes,
+          instruments: insts,
+          note: note
+        });
+      });
+
+      if (!rows.length) {
+        alert("没有收集到任何答案，请先完成本页的标注。");
+        return;
+      }
+
+      exportBtn.disabled = true;
+      exportBtn.textContent = "提交中…";
+
+      try {
+        const now = new Date().toISOString();
+
+        // 1) 写 labels 表
+        const labelRows = rows.map(r => ({
+          timestamp: now,
+          annotator: annotator,
+          pack_id: packId,
+          order_in_pack: r.order_in_pack,
+          clip_id: r.clip_id,
+          mood: r.mood || "",
+          scenes: r.scenes || "",
+          instruments: r.instruments || "",
+          note: r.note || ""
+        }));
+
+        const resp1 = await fetch(`${SUPABASE_URL}/rest/v1/labels`, {
+          method: "POST",
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            "Content-Type": "application/json",
+            Prefer: "return=minimal"
+          },
+          body: JSON.stringify(labelRows)
+        });
+        if (!resp1.ok) {
+          const t = await resp1.text();
+          console.error("labels error:", t);
+          throw new Error("写 labels 失败");
+        }
+
+        // 2) 根据 token 把 assignments.done 标为 true
+        if (token) {
+          const resp2 = await fetch(
+            `${SUPABASE_URL}/rest/v1/assignments?token=eq.${encodeURIComponent(token)}`,
+            {
+              method: "PATCH",
+              headers: {
+                apikey: SUPABASE_ANON_KEY,
+                Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+                "Content-Type": "application/json",
+                Prefer: "return=minimal"
+              },
+              body: JSON.stringify({ done: true })
+            }
+          );
+          if (!resp2.ok) {
+            const t2 = await resp2.text();
+            console.error("assignments error:", t2);
+            // 不一定要 throw，标记失败对你影响不大
+          }
+        }
+
+        alert("提交成功！本包共提交 " + rows.length + " 条标注，感谢你的参与。");
+      } catch (err) {
+        console.error(err);
+        alert("提交失败，请截图并联系任务发起人，可以稍后重试一次。");
+      } finally {
+        exportBtn.disabled = false;
+        exportBtn.textContent = "提交本包标注";
+      }
+    });
   </script>
 </body>
 </html>
