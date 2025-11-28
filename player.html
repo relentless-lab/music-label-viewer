@@ -136,7 +136,7 @@
   <div class="export-box" id="exportBox" style="display:none;">
     <div>
       <div>当前任务包：<strong id="packIdLabel"></strong></div>
-      <div>说明：每条 clip 的「情绪（1~2 个）+ 场景 + 乐器」为必填，全部填完再提交。</div>
+      <div>说明：每条 clip 的「情绪（1~2 个）+ 场景 + 乐器 + 节奏」为必填，全部填完再提交。</div>
     </div>
     <button class="primary" id="exportBtn">提交本包标注</button>
   </div>
@@ -183,7 +183,7 @@
           return;
         }
 
-        currentClips = clips.slice().sort((a,b) => a.order_in_pack - b.order_in_pack);
+        currentClips = clips.slice().sort((a, b) => a.order_in_pack - b.order_in_pack);
         packIdLabel.textContent = packId;
         exportBox.style.display = "flex";
 
@@ -193,8 +193,8 @@
             <p>操作说明：</p>
             <ul>
               <li>按顺序播放每一条音频。</li>
-              <li>为每条 clip 选择 1~2 个整体情绪、若干场景标签、若干乐器标签，并可填写一句话描述。</li>
-              <li><strong>情绪（1~2 个）+ 场景 + 乐器为必填</strong>，否则无法提交。</li>
+              <li>为每条 clip 选择 1~2 个整体情绪、若干场景标签、若干乐器标签、1 个节奏，并可填写一句话描述。</li>
+              <li><strong>情绪（1~2 个）+ 场景 + 乐器 + 节奏为必填</strong>，否则无法提交。</li>
             </ul>
           </div>
         `;
@@ -204,14 +204,15 @@
           const fileName = clip.file_name;
           const audioUrl = BASE_AUDIO_URL.replace(/\/$/, "") + "/" + fileName;
 
-          const moodName = `mood_${clipId}`;
+          const moodName  = `mood_${clipId}`;
+          const tempoName = `tempo_${clipId}`;
           const sceneName = `scene_${clipId}`;
           const instName  = `inst_${clipId}`;
           const noteId    = `note_${clipId}`;
 
           html += `
             <div class="clip-card">
-              <div class="clip-title">Clip ${idx+1} / ${currentClips.length}</div>
+              <div class="clip-title">Clip ${idx + 1} / ${currentClips.length}</div>
               <div class="clip-id">clip_id：<code>${clipId}</code></div>
               <audio controls src="${audioUrl}">
                 您的浏览器不支持 audio 标签。
@@ -220,13 +221,16 @@
                 系统会自动记录该 clip 的标注，请专注于听感和填写即可。
               </div>
 
+              <!-- 情绪 -->
               <div class="field-group">
                 <span class="field-label">1）整体情绪（多选，1~2 个，必选）</span>
                 <label><input type="checkbox" name="${moodName}" value="bright_daily"> 明亮/日常</label>
                 <label><input type="checkbox" name="${moodName}" value="anime_youth"> 日漫/青春</label>
                 <label><input type="checkbox" name="${moodName}" value="sad"> 伤感/忧郁</label>
-                <label><input type="checkbox" name="${moodName}" value="healing"> 治愈/温柔</label>
+                <label><input type="checkbox" name="${moodName}" value="healing_up"> 治愈/向上</label>
+                <label><input type="checkbox" name="${moodName}" value="calm_warm"> 平静/温柔</label>
                 <label><input type="checkbox" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
+                <label><input type="checkbox" name="${moodName}" value="hot_blood"> 热血/高昂</label>
                 <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
                 <label><input type="checkbox" name="${moodName}" value="mysterious"> 神秘/奇异</label>
                 <label><input type="checkbox" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
@@ -234,8 +238,17 @@
                 <label><input type="checkbox" name="${moodName}" value="other"> 其他/难以判断</label>
               </div>
 
+              <!-- 节奏 -->
               <div class="field-group">
-                <span class="field-label">2）画面场景（多选，至少 1 个）</span><br/>
+                <span class="field-label">2）节奏感（单选，必选）</span>
+                <label><input type="radio" name="${tempoName}" value="slow"> 慢（偏抒情/舒缓）</label>
+                <label><input type="radio" name="${tempoName}" value="medium"> 中（常规中速）</label>
+                <label><input type="radio" name="${tempoName}" value="fast"> 快（偏快/高节奏）</label>
+              </div>
+
+              <!-- 场景 -->
+              <div class="field-group">
+                <span class="field-label">3）画面场景（多选，至少 1 个）</span><br/>
                 <!-- 日常/校园系 -->
                 <label><input type="checkbox" name="${sceneName}" value="school_class"> 校园/教室</label>
                 <label><input type="checkbox" name="${sceneName}" value="after_school_club"> 放学/社团活动</label>
@@ -276,8 +289,9 @@
                 <label><input type="checkbox" name="${sceneName}" value="other"> 其他</label>
               </div>
 
+              <!-- 乐器 -->
               <div class="field-group">
-                <span class="field-label">3）主要乐器（多选，至少 1 个）</span><br/>
+                <span class="field-label">4）主要乐器（多选，至少 1 个）</span><br/>
                 <label><input type="checkbox" name="${instName}" value="piano"> 钢琴</label>
                 <label><input type="checkbox" name="${instName}" value="strings"> 弦乐（小提琴/大提琴等）</label>
                 <label><input type="checkbox" name="${instName}" value="acoustic_guitar"> 原声吉他</label>
@@ -301,8 +315,9 @@
                 <label><input type="checkbox" name="${instName}" value="other"> 其他</label>
               </div>
 
+              <!-- 一句话描述 -->
               <div class="field-group">
-                <div class="field-label">4）一句话描述（自由填写，可选）</div>
+                <div class="field-label">5）一句话描述（自由填写，可选）</div>
                 <textarea id="${noteId}" placeholder="例如：夏日祭烟花结束后，两个人一起走在河边回家的路上，有一点宿命感但整体偏治愈……"></textarea>
               </div>
             </div>
@@ -316,7 +331,7 @@
         app.innerHTML = `<p class="error">加载 packs.json 失败，请检查路径和权限。</p>`;
       });
 
-    // 提交：带必填检查（情绪 1~2 个，场景≥1，乐器≥1）
+    // 提交：带必填检查（情绪 1~2 个，场景≥1，乐器≥1，节奏必选）
     exportBtn.addEventListener("click", async () => {
       if (!currentClips.length) return;
 
@@ -332,24 +347,27 @@
 
       currentClips.forEach(clip => {
         const clipId = clip.clip_id;
-        const moodName = `mood_${clipId}`;
+        const moodName  = `mood_${clipId}`;
+        const tempoName = `tempo_${clipId}`;
         const sceneName = `scene_${clipId}`;
         const instName  = `inst_${clipId}`;
         const noteId    = `note_${clipId}`;
 
-        const moodEls = Array.from(document.querySelectorAll(`input[name="${moodName}"]:checked`));
+        const moodEls  = Array.from(document.querySelectorAll(`input[name="${moodName}"]:checked`));
         const sceneEls = Array.from(document.querySelectorAll(`input[name="${sceneName}"]:checked`));
         const instEls  = Array.from(document.querySelectorAll(`input[name="${instName}"]:checked`));
+        const tempoEl  = document.querySelector(`input[name="${tempoName}"]:checked`);
 
         const moodCount = moodEls.length;
         const moods  = moodEls.map(el => el.value).join(";");
         const scenes = sceneEls.map(el => el.value).join(";");
         const insts  = instEls.map(el => el.value).join(";");
+        const tempo  = tempoEl ? tempoEl.value : "";
 
         const note = (document.getElementById(noteId)?.value || "").replace(/\r?\n/g, " ");
 
-        // 必填/数量检查
-        if (moodCount < 1 || moodCount > 2 || !scenes || !insts) {
+        // 必填/数量检查：情绪 1~2 个；场景≥1；乐器≥1；节奏必选
+        if (moodCount < 1 || moodCount > 2 || !scenes || !insts || !tempo) {
           incomplete.push(clip.order_in_pack);
         }
 
@@ -359,6 +377,7 @@
           mood: moods,
           scenes: scenes,
           instruments: insts,
+          tempo: tempo,
           note: note
         });
       });
@@ -367,7 +386,7 @@
         alert(
           "还有这些 clip 没填完整或情绪选择超过 2 个：\n\n" +
           incomplete.join(", ") +
-          "\n\n每条 clip 需要：\n- 1~2 个情绪\n- ≥1 个场景\n- ≥1 个乐器\n请补全后再提交。"
+          "\n\n每条 clip 需要：\n- 1~2 个情绪\n- ≥1 个场景\n- ≥1 个乐器\n- 1 个节奏\n请补全后再提交。"
         );
         return;
       }
@@ -385,7 +404,7 @@
 
         // 1) 写 labels 表
         const labelRows = rows.map(r => ({
-          timestamp: now,   // 如果 labels 表是 created_at 字段，就改成 created_at: now
+          timestamp: now,          // 如果 labels 表是 created_at，就改成 created_at: now
           annotator: annotator,
           pack_id: packId,
           order_in_pack: r.order_in_pack,
@@ -393,6 +412,7 @@
           mood: r.mood || "",
           scenes: r.scenes || "",
           instruments: r.instruments || "",
+          tempo: r.tempo || "",
           note: r.note || ""
         }));
 
