@@ -66,16 +66,27 @@
       margin-bottom: 8px;
     }
     .field-group {
-      margin: 6px 0;
+      margin: 10px 0;
       font-size: 13px;
     }
     .field-label {
       font-weight: 600;
-      margin-right: 6px;
+      margin-bottom: 4px;
     }
     .field-group label {
-      margin-right: 10px;
       white-space: nowrap;
+      font-size: 13px;
+    }
+    .option-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 4px;
+    }
+    .sub-label {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #666;
     }
     textarea {
       width: 100%;
@@ -171,6 +182,23 @@
 
     let currentClips = [];
 
+    // 给每个情绪组加“最多 2 个”的前端限制
+    function setupMoodLimit() {
+      currentClips.forEach(clip => {
+        const moodName = `mood_${clip.clip_id}`;
+        const boxes = Array.from(document.querySelectorAll(`input[name="${moodName}"]`));
+        boxes.forEach(box => {
+          box.addEventListener("change", () => {
+            const checked = boxes.filter(b => b.checked);
+            if (checked.length > 2) {
+              box.checked = false;
+              alert("整体情绪最多选择 2 个，请取消一个再选。");
+            }
+          });
+        });
+      });
+    }
+
     // 加载 packs.json 并渲染
     fetch(PACKS_JSON_URL)
       .then(resp => resp.json())
@@ -223,96 +251,137 @@
 
               <!-- 情绪 -->
               <div class="field-group">
-                <span class="field-label">1）整体情绪（多选，1~2 个，必选）</span>
-                <label><input type="checkbox" name="${moodName}" value="bright_daily"> 明亮/日常</label>
-                <label><input type="checkbox" name="${moodName}" value="anime_youth"> 日漫/青春</label>
-                <label><input type="checkbox" name="${moodName}" value="sad"> 伤感/忧郁</label>
-                <label><input type="checkbox" name="${moodName}" value="healing_up"> 治愈/向上</label>
-                <label><input type="checkbox" name="${moodName}" value="calm_warm"> 平静/温柔</label>
-                <label><input type="checkbox" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
-                <label><input type="checkbox" name="${moodName}" value="hot_blood"> 热血/高昂</label>
-                <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
-                <label><input type="checkbox" name="${moodName}" value="mysterious"> 神秘/奇异</label>
-                <label><input type="checkbox" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
-                <label><input type="checkbox" name="${moodName}" value="comedy"> 搞笑/沙雕</label>
-                <label><input type="checkbox" name="${moodName}" value="other"> 其他/难以判断</label>
+                <div class="field-label">1）整体情绪（多选，1~2 个，必选）</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${moodName}" value="bright_daily"> 明亮/日常</label>
+                  <label><input type="checkbox" name="${moodName}" value="anime_youth"> 日漫/青春</label>
+                  <label><input type="checkbox" name="${moodName}" value="sad"> 伤感/忧郁</label>
+                  <label><input type="checkbox" name="${moodName}" value="healing_up"> 治愈/向上</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${moodName}" value="calm_warm"> 平静/温柔</label>
+                  <label><input type="checkbox" name="${moodName}" value="epic_fate"> 宿命/史诗感</label>
+                  <label><input type="checkbox" name="${moodName}" value="hot_blood"> 热血/高昂</label>
+                  <label><input type="checkbox" name="${moodName}" value="tension_battle"> 紧张/战斗</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${moodName}" value="mysterious"> 神秘/奇异</label>
+                  <label><input type="checkbox" name="${moodName}" value="dark_hopeless"> 黑暗/绝望</label>
+                  <label><input type="checkbox" name="${moodName}" value="comedy"> 搞笑/沙雕</label>
+                  <label><input type="checkbox" name="${moodName}" value="other"> 其他/难以判断</label>
+                </div>
               </div>
 
               <!-- 节奏 -->
               <div class="field-group">
-                <span class="field-label">2）节奏感（单选，必选）</span>
-                <label><input type="radio" name="${tempoName}" value="slow"> 慢（偏抒情/舒缓）</label>
-                <label><input type="radio" name="${tempoName}" value="medium"> 中（常规中速）</label>
-                <label><input type="radio" name="${tempoName}" value="fast"> 快（偏快/高节奏）</label>
+                <div class="field-label">2）节奏感（单选，必选）</div>
+                <div class="option-row">
+                  <label><input type="radio" name="${tempoName}" value="slow"> 慢（偏抒情/舒缓）</label>
+                  <label><input type="radio" name="${tempoName}" value="medium"> 中（常规中速）</label>
+                  <label><input type="radio" name="${tempoName}" value="fast"> 快（偏快/高节奏）</label>
+                </div>
               </div>
 
-              <!-- 场景 -->
+              <!-- 场景：按类别分组 -->
               <div class="field-group">
-                <span class="field-label">3）画面场景（多选，至少 1 个）</span><br/>
-                <!-- 日常/校园系 -->
-                <label><input type="checkbox" name="${sceneName}" value="school_class"> 校园/教室</label>
-                <label><input type="checkbox" name="${sceneName}" value="after_school_club"> 放学/社团活动</label>
-                <label><input type="checkbox" name="${sceneName}" value="anime_rooftop"> 学校天台</label>
-                <label><input type="checkbox" name="${sceneName}" value="city_street_day"> 白天城市街道</label>
-                <label><input type="checkbox" name="${sceneName}" value="city_street_night"> 夜晚霓虹街道</label>
-                <label><input type="checkbox" name="${sceneName}" value="train_commute"> 电车/地铁通勤</label>
-                <label><input type="checkbox" name="${sceneName}" value="anime_rail_crossing"> 铁路道口/平交道</label>
-                <label><input type="checkbox" name="${sceneName}" value="room_alone"> 室内/自己房间</label>
-                <br/>
-                <!-- 情感/剧情 -->
-                <label><input type="checkbox" name="${sceneName}" value="confession_date"> 告白/约会</label>
-                <label><input type="checkbox" name="${sceneName}" value="reminiscence_flashback"> 回忆/回想场景</label>
-                <label><input type="checkbox" name="${sceneName}" value="farewell"> 告别/离别</label>
-                <label><input type="checkbox" name="${sceneName}" value="everyday_montage"> 日常蒙太奇</label>
-                <label><input type="checkbox" name="${sceneName}" value="anime_op_ed"> 日漫 OP/ED 镜头感</label>
-                <br/>
-                <!-- 季节/氛围 -->
-                <label><input type="checkbox" name="${sceneName}" value="spring_cherry"> 春天/樱花/入学</label>
-                <label><input type="checkbox" name="${sceneName}" value="summer_holiday"> 夏日/暑假午后</label>
-                <label><input type="checkbox" name="${sceneName}" value="summer_festival"> 夏日祭/烟花大会</label>
-                <label><input type="checkbox" name="${sceneName}" value="autumn_leaves"> 秋天/枫叶</label>
-                <label><input type="checkbox" name="${sceneName}" value="rainy_city"> 雨天/打伞行走</label>
-                <label><input type="checkbox" name="${sceneName}" value="snow_scene"> 雪景/冬日</label>
-                <label><input type="checkbox" name="${sceneName}" value="nature_field"> 草地/森林/山/河</label>
-                <label><input type="checkbox" name="${sceneName}" value="sea_beach"> 海边/沙滩</label>
-                <br/>
-                <!-- 战斗/奇幻 -->
-                <label><input type="checkbox" name="${sceneName}" value="battle_fight"> 战斗/对决</label>
-                <label><input type="checkbox" name="${sceneName}" value="chase_run"> 追逐/疾跑</label>
-                <label><input type="checkbox" name="${sceneName}" value="isekai_fantasy"> 异世界/幻想世界</label>
-                <label><input type="checkbox" name="${sceneName}" value="shrine_temple"> 神社/寺庙/鸟居</label>
-                <label><input type="checkbox" name="${sceneName}" value="japanese_old_town"> 和风小镇/古街</label>
-                <br/>
-                <!-- 其他 -->
-                <label><input type="checkbox" name="${sceneName}" value="sports"> 体育比赛/竞技</label>
-                <label><input type="checkbox" name="${sceneName}" value="game_ui"> 游戏/菜单/界面 BGM</label>
-                <label><input type="checkbox" name="${sceneName}" value="other"> 其他</label>
+                <div class="field-label">3）画面场景（多选，至少 1 个）</div>
+
+                <div class="sub-label">日常地点</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="school_class"> 校园/教室</label>
+                  <label><input type="checkbox" name="${sceneName}" value="after_school_club"> 放学/社团活动</label>
+                  <label><input type="checkbox" name="${sceneName}" value="anime_rooftop"> 学校天台</label>
+                  <label><input type="checkbox" name="${sceneName}" value="city_street_day"> 白天城市街道</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="city_street_night"> 夜晚霓虹街道</label>
+                  <label><input type="checkbox" name="${sceneName}" value="train_commute"> 电车/地铁通勤</label>
+                  <label><input type="checkbox" name="${sceneName}" value="anime_rail_crossing"> 铁路道口/平交道</label>
+                  <label><input type="checkbox" name="${sceneName}" value="room_alone"> 室内/自己房间</label>
+                </div>
+
+                <div class="sub-label">剧情 / 情感</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="confession_date"> 告白/约会</label>
+                  <label><input type="checkbox" name="${sceneName}" value="reminiscence_flashback"> 回忆/回想场景</label>
+                  <label><input type="checkbox" name="${sceneName}" value="farewell"> 告别/离别</label>
+                  <label><input type="checkbox" name="${sceneName}" value="everyday_montage"> 日常蒙太奇</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="anime_op_ed"> 日漫 OP/ED 镜头感</label>
+                </div>
+
+                <div class="sub-label">季节 / 天气 / 自然</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="spring_cherry"> 春天/樱花/入学</label>
+                  <label><input type="checkbox" name="${sceneName}" value="summer_holiday"> 夏日/暑假午后</label>
+                  <label><input type="checkbox" name="${sceneName}" value="summer_festival"> 夏日祭/烟花大会</label>
+                  <label><input type="checkbox" name="${sceneName}" value="autumn_leaves"> 秋天/枫叶</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="rainy_city"> 雨天/打伞行走</label>
+                  <label><input type="checkbox" name="${sceneName}" value="snow_scene"> 雪景/冬日</label>
+                  <label><input type="checkbox" name="${sceneName}" value="nature_field"> 草地/森林/山/河</label>
+                  <label><input type="checkbox" name="${sceneName}" value="sea_beach"> 海边/沙滩</label>
+                </div>
+
+                <div class="sub-label">战斗 / 奇幻 / 和风</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="battle_fight"> 战斗/对决</label>
+                  <label><input type="checkbox" name="${sceneName}" value="chase_run"> 追逐/疾跑</label>
+                  <label><input type="checkbox" name="${sceneName}" value="isekai_fantasy"> 异世界/幻想世界</label>
+                  <label><input type="checkbox" name="${sceneName}" value="shrine_temple"> 神社/寺庙/鸟居</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="japanese_old_town"> 和风小镇/古街</label>
+                </div>
+
+                <div class="sub-label">其他 / 功能性</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${sceneName}" value="sports"> 体育比赛/竞技</label>
+                  <label><input type="checkbox" name="${sceneName}" value="game_ui"> 游戏/菜单/界面 BGM</label>
+                  <label><input type="checkbox" name="${sceneName}" value="other"> 其他</label>
+                </div>
               </div>
 
               <!-- 乐器 -->
               <div class="field-group">
-                <span class="field-label">4）主要乐器（多选，至少 1 个）</span><br/>
-                <label><input type="checkbox" name="${instName}" value="piano"> 钢琴</label>
-                <label><input type="checkbox" name="${instName}" value="strings"> 弦乐（小提琴/大提琴等）</label>
-                <label><input type="checkbox" name="${instName}" value="acoustic_guitar"> 原声吉他</label>
-                <label><input type="checkbox" name="${instName}" value="electric_guitar"> 电吉他</label>
-                <label><input type="checkbox" name="${instName}" value="bass"> 贝斯</label>
-                <label><input type="checkbox" name="${instName}" value="drums"> 鼓/整套鼓组</label>
-                <label><input type="checkbox" name="${instName}" value="percussion"> 打击乐（铃/木鱼/鼓点等）</label>
-                <br/>
-                <label><input type="checkbox" name="${instName}" value="synth_pad"> 合成器 Pad / 氛围音</label>
-                <label><input type="checkbox" name="${instName}" value="synth_lead"> 电子 Lead / 主旋律</label>
-                <label><input type="checkbox" name="${instName}" value="chiptune_8bit"> 8bit / 游戏芯片音色</label>
-                <br/>
-                <label><input type="checkbox" name="${instName}" value="wind_brass"> 铜管（小号/长号/萨克斯）</label>
-                <label><input type="checkbox" name="${instName}" value="wind_wood"> 木管（长笛/单簧管等）</label>
-                <label><input type="checkbox" name="${instName}" value="jp_traditional"> 和风乐器（三味线/尺八/筝等）</label>
-                <br/>
-                <label><input type="checkbox" name="${instName}" value="vocal_lead"> 主唱人声</label>
-                <label><input type="checkbox" name="${instName}" value="chorus"> 合唱/和声</label>
-                <label><input type="checkbox" name="${instName}" value="vocaloid"> 电子人声/Vocaloid 感</label>
-                <label><input type="checkbox" name="${instName}" value="ambient_fx"> 环境音/音效/FX</label>
-                <label><input type="checkbox" name="${instName}" value="other"> 其他</label>
+                <div class="field-label">4）主要乐器（多选，至少 1 个）</div>
+                <div class="sub-label">传统 / Band 配器</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${instName}" value="piano"> 钢琴</label>
+                  <label><input type="checkbox" name="${instName}" value="strings"> 弦乐（小提琴/大提琴等）</label>
+                  <label><input type="checkbox" name="${instName}" value="acoustic_guitar"> 原声吉他</label>
+                  <label><input type="checkbox" name="${instName}" value="electric_guitar"> 电吉他</label>
+                </div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${instName}" value="bass"> 贝斯</label>
+                  <label><input type="checkbox" name="${instName}" value="drums"> 鼓/整套鼓组</label>
+                  <label><input type="checkbox" name="${instName}" value="percussion"> 打击乐（铃/木鱼/鼓点等）</label>
+                </div>
+
+                <div class="sub-label">电子 / 合成器</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${instName}" value="synth_pad"> 合成器 Pad / 氛围音</label>
+                  <label><input type="checkbox" name="${instName}" value="synth_lead"> 电子 Lead / 主旋律</label>
+                  <label><input type="checkbox" name="${instName}" value="chiptune_8bit"> 8bit / 游戏芯片音色</label>
+                </div>
+
+                <div class="sub-label">管乐 / 和风</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${instName}" value="wind_brass"> 铜管（小号/长号/萨克斯）</label>
+                  <label><input type="checkbox" name="${instName}" value="wind_wood"> 木管（长笛/单簧管等）</label>
+                  <label><input type="checkbox" name="${instName}" value="jp_traditional"> 和风乐器（三味线/尺八/筝等）</label>
+                </div>
+
+                <div class="sub-label">人声 / 其他</div>
+                <div class="option-row">
+                  <label><input type="checkbox" name="${instName}" value="vocal_lead"> 主唱人声</label>
+                  <label><input type="checkbox" name="${instName}" value="chorus"> 合唱/和声</label>
+                  <label><input type="checkbox" name="${instName}" value="vocaloid"> 电子人声/Vocaloid 感</label>
+                  <label><input type="checkbox" name="${instName}" value="ambient_fx"> 环境音/音效/FX</label>
+                  <label><input type="checkbox" name="${instName}" value="other"> 其他</label>
+                </div>
               </div>
 
               <!-- 一句话描述 -->
@@ -325,6 +394,7 @@
         });
 
         app.innerHTML = html;
+        setupMoodLimit(); // 渲染完再挂载“最多 2 个情绪”的逻辑
       })
       .catch(err => {
         console.error(err);
@@ -404,7 +474,7 @@
 
         // 1) 写 labels 表
         const labelRows = rows.map(r => ({
-          timestamp: now,          // 如果 labels 表是 created_at，就改成 created_at: now
+          created_at: now,          // 如果 labels 表是 created_at，就改成 created_at: now
           annotator: annotator,
           pack_id: packId,
           order_in_pack: r.order_in_pack,
